@@ -1,0 +1,46 @@
+
+.header{
+    padding: 5rem 0;
+    text-align: center;
+}
+
+
+.main{
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    align-content: center;
+    gap: 2.5rem;
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+.settings{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#grid-container{
+    display: flex;
+    height: 600px;
+    width: 600px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+    border-style: solid;
+    border-width: thin;
+    border-color: black;
+}
+
+#rangeValue{
+    display: flex;
+    justify-content: center;
+}
+
+.col, .row{
+    display: flex;
+    flex: 1 1 auto;
+
+}
