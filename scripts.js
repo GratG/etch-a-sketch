@@ -1,9 +1,13 @@
 const DEFAULT_SIZE = 16;
+const DEFAULT_MODE = "color";
+const DEFAULT_COLOR = '#333333';
 
 
 
 const grid = document.getElementById("grid-container");
+function setMode(){
 
+}
 function createGrid(size){
     for(let r = 1; r <= size; r++){
         let row = document.createElement("div");
@@ -35,8 +39,12 @@ function remakeGrid(){
 }
 
 function changeColor(e){
-    e.target.style.backgroundColor = "black";
+    if(currentMode === "color")
+        e.target.style.backgroundColor = currentColor;
+    else if(currentMode === "eraser")
+        e.target.style.backgroundColor = "white";
 }
+
 function clearGrid(){
     let gridRow = document.getElementsByClassName("row");
     let gridCol = document.getElementsByClassName("col");
@@ -47,14 +55,23 @@ function clearGrid(){
 
 let range = document.getElementById("slider");
 let rangeDiv = document.getElementById("rangeValue");
-
+let colorBtn = document.getElementById("colorBtn");
+let eraserBtn = document.getElementById("eraserBtn");
 let clearBtn = document.getElementById("clearBtn");
+let colorChoice = document.getElementById("colorIn");
+
 let gridSize = DEFAULT_SIZE;
+let currentColor = DEFAULT_COLOR;
+let currentMode = DEFAULT_MODE;
 
 createGrid(gridSize);
 
-range.addEventListener("mouseup", () => remakeGrid());
+colorChoice.addEventListener("change", () =>currentColor = colorChoice.value);
+colorBtn.addEventListener("click", () => currentMode = "color");
+eraserBtn.addEventListener("click", () => currentMode = "eraser");
 clearBtn.addEventListener("click", () => clearGrid());
+range.addEventListener("mouseup", () => remakeGrid());
+
 
 
 
